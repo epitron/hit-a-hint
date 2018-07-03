@@ -4,11 +4,17 @@
 
 Ideally, the key bindings should be in a dictionary that can be parsed and overridden easily.
 
-## Remove the need to press "enter" after typing in the link identifier
+## Remove the need to press "ENTER" after typing the link identifier (or make it a user-configurable setting)
 
-## 'F' to follow in new tab
+## Remove jQuery dependency
 
-## Hit-a-hint should highlight the links with a CSS style
+Modern browsers have decent element selection built-in now; let's take advantage of that.
+
+## 'Shift-F' follows the link in a new tab
+
+## Style matched links
+
+(Similar to the search command.)
 
 ## 'c' to copy a link
 
