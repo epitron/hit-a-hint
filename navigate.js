@@ -3,10 +3,10 @@
 
 const scrollValue = 30;
 const KEY = {
-   NUM1:49,NUM2:50,NUM3:51,NUM4:52,NUM5:53,NUM6:54,NUM7:55,NUM8:56,NUM9:57,
+   NUM1: 49, NUM2: 50, NUM3:51, NUM4: 52, NUM5: 53, NUM6: 54, NUM7: 55, NUM8: 56, NUM9: 57,
    ENTER: 13,
    LEFT: 37, UP: 38, RIGHT: 39, DOWN: 40,
-   CONTROL: 17, 
+   CONTROL: 17,
    F: 70, G: 71,
    J: 74, K: 75, H: 72, L: 76, ESC: 27,
    Z: 90, X: 88,
@@ -271,18 +271,18 @@ var LinkSearchMode = function(){
       for (var i=0;i<self.allNodes.length;i++) {
          var node = self.allNodes[i];
          if (node.innerText.search(regexp) != -1) {
-                self.candidateNodes.push(node);
-             }
+            self.candidateNodes.push(node);
+         }
       }
       if (self.candidateNodes.length > 0) {
-         self.input.css("backgroundColor", "white");
+        self.input.css("backgroundColor", "white");
 
-         self.selectedNodeIdx = 0;
+        self.selectedNodeIdx = 0;
 	     addClass(self.candidateNodes[0], "chrome_search_selected");
-//	     makeCenter(self.candidateNodes[0]);
+	     // makeCenter(self.candidateNodes[0]);
 	     for (var i=1;i<self.candidateNodes.length;i++){
 	        addClass(self.candidateNodes[i], "chrome_search_candidate");
-         }
+        }
       } else {
          self.input.css("backgroundColor", "red");
          self.selectedNodeIdx = undefined;
