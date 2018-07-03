@@ -1,23 +1,23 @@
 {
    "manifest_version": 2,
 
-   "name": "Hit-a-Hint",
-   "version": "0.1",
+   "name":        "Hit-a-Hint",
+   "version":     "0.1",
    "description": "Press 'f' to follow a link",
 
    "background": { "page": "background.html" },
    "options_page": "options.html",
 
    "content_scripts": [ {
-      "css": [ "navigate.css" ],
-      "js": [ "zepto.min.js", "navigate.js" ],
+      "css":     [ "navigate.css" ],
+      "js":      [ "jquery.js", "navigate.js" ],
       "matches": [ "http://*/*", "https://*/*", "file://*/*" ],
-      "run_at": "document_start"
+      "run_at":  "document_start"
    } ],
 
    "icons": {
       "128": "icon128.png",
-      "48": "icon48.png"
+      "48":  "icon48.png"
    },
 
    // "key": "",
