@@ -135,20 +135,21 @@ var HitAHintMode = function(){
       }
    });
    this.input.keydown(function(e){
-      if (e.keyCode == KEY.COMMA) {
-         e.preventDefault();
-         e.stopPropagation();
-         self.finish();
-         return;
-      }
+      // if (e.keyCode == KEY.COMMA) {
+      //    e.preventDefault();
+      //    e.stopPropagation();
+      //    self.finish();
+      //    return;
+      // }
 
-      if (e.keyCode == KEY.SEMICOLON && self.candidateNodes[this.value]) {
-         target = self.candidateNodes[this.value].node;
-         self.finish();
-         target.focus();
-         e.preventDefault();
-         return;
-      }
+      // if (e.keyCode == KEY.SEMICOLON && self.candidateNodes[this.value]) {
+      //    target = self.candidateNodes[this.value].node;
+      //    self.finish();
+      //    target.focus();
+      //    e.preventDefault();
+      //    return;
+      // }
+
       if (e.keyCode == KEY.ENTER && self.candidateNodes[this.value] ) {
          target = self.candidateNodes[this.value].node;
          self.finish();
@@ -307,30 +308,30 @@ var LinkSearchMode = function(){
          self.finish();
          e.preventDefault();
          break;
-      case KEY.G:
-         if (e.ctrlKey) {
-            e.preventDefault();
-            if (self.selectedNodeIdx == undefined) {
-               return;
-            }
+      // case KEY.G:
+      //    if (e.ctrlKey) {
+      //       e.preventDefault();
+      //       if (self.selectedNodeIdx == undefined) {
+      //          return;
+      //       }
 
-            removeClass(self.candidateNodes[self.selectedNodeIdx],
-                        "chrome_search_selected");
-            if (!e.shiftKey) {
-               self.selectedNodeIdx += 1;
-               self.selectedNodeIdx %= self.candidateNodes.length;
-            } else {
-               self.selectedNodeIdx -= 1;
-               self.selectedNodeIdx += self.candidateNodes.length;
-               self.selectedNodeIdx %= self.candidateNodes.length;
-            }
-            new_target = self.candidateNodes[self.selectedNodeIdx];
-            addClass(new_target, "chrome_search_selected");
-            if ( !isInArea(new_target.getBoundingClientRect()) ) {
-               makeCenter(new_target);
-            }
-         }
-         break;
+      //       removeClass(self.candidateNodes[self.selectedNodeIdx],
+      //                   "chrome_search_selected");
+      //       if (!e.shiftKey) {
+      //          self.selectedNodeIdx += 1;
+      //          self.selectedNodeIdx %= self.candidateNodes.length;
+      //       } else {
+      //          self.selectedNodeIdx -= 1;
+      //          self.selectedNodeIdx += self.candidateNodes.length;
+      //          self.selectedNodeIdx %= self.candidateNodes.length;
+      //       }
+      //       new_target = self.candidateNodes[self.selectedNodeIdx];
+      //       addClass(new_target, "chrome_search_selected");
+      //       if ( !isInArea(new_target.getBoundingClientRect()) ) {
+      //          makeCenter(new_target);
+      //       }
+      //    }
+      //    break;
       }
    });
 
@@ -393,21 +394,19 @@ function start(e){
       return;
 
    switch(e.keyCode) {
-   case KEY.SLASH: case KEY.PERIOD:
-      if (isDisabledSite())
-         return;
+   // case KEY.PERIOD:
+   case KEY.SLASH:
+      if (isDisabledSite()) return;
       e.preventDefault();
       mode = linksearch;
       linksearch.init();
       break;
    case KEY.F:
-      if (isDisabledSite())
-         return;
+      if (isDisabledSite()) return;
       e.preventDefault();
       mode = hitahint;
       hitahint.init();
       break;
-
    // case KEY.J:
    //    if (!other_enable || isDisabledSite())
    //       return;
@@ -418,19 +417,17 @@ function start(e){
    //       return;
    //    window.scrollBy(0,-scrollValue);
    //    break;
-   case KEY.COMMA: case KEY.Z:
-      if (isDisabledSite())
-         return;
+   case KEY.Z: // case KEY.COMMA:
+      if (isDisabledSite()) return;
       history.back();
       break;
-   case KEY.PERIOD: case KEY.X:
-      if (isDisabledSite())
-         return;
+   case KEY.X: // case KEY.PERIOD:
+      if (isDisabledSite()) return;
       history.forward();
       break;
-   default:
-//      console.log(e.keyCode);
-      break;
+   // default:
+   //   console.log(e.keyCode);
+   //   break;
    }
 }
 
