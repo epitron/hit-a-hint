@@ -76,6 +76,7 @@ function init() {
    document.querySelector('#save').addEventListener('click', function() { SiteManager.save() });
    document.querySelector('#delete').addEventListener('click', function() { SiteManager.del() });
    document.querySelector('#add').addEventListener('click', function() { SiteManager.add() });
+   document.querySelector("#hitahintkeys").addEventListener('change', function () { HitaHintManager.save() });
    restore();
 }
 
